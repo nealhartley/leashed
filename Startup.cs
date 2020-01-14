@@ -28,15 +28,14 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            var connectionString = Configuration["PostgreSql:ConnectionString"];
-            var dbPassword = Configuration["PostgreSql:DbPassword"];
-            var builder = new NpgsqlConnectionStringBuilder(connectionString){
-                Password = dbPassword
-            };
+            // var connectionString = Configuration["PostgreSql:ConnectionString"];
+            // var dbPassword = Configuration["PostgreSql:DbPassword"];
+            // var builder = new NpgsqlConnectionStringBuilder(connectionString){
+            //     Password = dbPassword
+            // };
 
             services.AddDbContext<TodoContext>(opt =>
-            opt.UseNpgsql(builder.ConnectionString));
+            opt.UseNpgsql(Helpers.connectionStringMaker()));
 
             services.AddControllers();
         }
