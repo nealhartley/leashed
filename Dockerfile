@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /src
 COPY *.sln .
-COPY leashApi/*.csproj leashApi/
+COPY *.csproj leashApi/
 RUN dotnet restore
 COPY . .
 
