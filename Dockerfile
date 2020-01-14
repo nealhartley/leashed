@@ -2,8 +2,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /src
 COPY *.csproj leashApi/
-RUN cd leashApi
-RUN dotnet restore
+RUN 'cd /leashApi ; dotnet restore'
 COPY . .
 
 # publish
