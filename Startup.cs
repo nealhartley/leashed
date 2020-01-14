@@ -34,15 +34,24 @@ namespace leashApi
             //     Password = dbPassword
             // };
 
+            
             services.AddDbContext<TodoContext>(opt =>
             opt.UseNpgsql(Helpers.connectionStringMaker()));
 
             services.AddControllers();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //added
+            var context = app.ApplicationServices.GetService<TodoContext>();
+
+            if(!context.Database.EnsureCreated()){
+                context.Database.Migrate();
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,6 +67,7 @@ namespace leashApi
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
