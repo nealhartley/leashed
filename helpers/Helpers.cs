@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 
+
     public class Helpers{
 
         public static string connectionStringMaker()
@@ -21,7 +22,7 @@ using Microsoft.Extensions.Configuration;
             string Database = strConn[5];
             string Port = strConn[4];
 
-            string connectionString = "host={Server};port={Port};database={Database};uid={User};pwd={Pass};sslmode=Require;Trust Server Certificate=true;Timeout=1000";
+            string connectionString = $"host={Server};port={Port};database={Database};uid={User};pwd={Pass};sslmode=Require;Trust Server Certificate=true;Timeout=1000";
             return connectionString;
         }
     }
