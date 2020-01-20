@@ -1,14 +1,14 @@
-using Microsoft.EntityFrameworkCore;
+// using Microsoft.EntityFrameworkCore;
 
-namespace TodoApi.Models
-{
-    public class TodoContext : DbContext
-    {
-        public TodoContext(DbContextOptions<TodoContext> options)
-            : base(options)
-        {
-        }
+// namespace TodoApi.Models
+// {
+//     public class ParkContext : DbContext
+//     {
+//         public ParkContext(DbContextOptions<ParkContext> options)
+//             : base(options)
+//         {
+//         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
-    }
-}
+//         public DbSet<TodoItem> TodoItems { get; set; }
+//     }
+// }

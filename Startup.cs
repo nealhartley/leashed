@@ -35,7 +35,7 @@ namespace leashApi
             // };
 
             
-            services.AddDbContext<TodoContext>(opt =>
+            services.AddDbContext<ParkContext>(opt =>
             opt.UseNpgsql(Helpers.connectionStringMaker()));
 
             services.AddControllers();
@@ -46,7 +46,7 @@ namespace leashApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //added
-            var context = app.ApplicationServices.GetService<TodoContext>();
+            var context = app.ApplicationServices.GetService<ParkContext>();
 
             if(!context.Database.EnsureCreated()){
                 context.Database.Migrate();
