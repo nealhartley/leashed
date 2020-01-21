@@ -26,6 +26,7 @@ namespace leashApi.Controllers
         {
             Console.Out.Write("Get works");
             Console.Error.Write("get works");
+            Console.Out.Flush();
             return await _context.ParkItems.ToListAsync();
         }
 
@@ -50,6 +51,7 @@ namespace leashApi.Controllers
         {
             var parkItem = await _context.ParkItems.FindAsync(suburb);
             Console.Out.Write("this is the sent suburb: " + suburb);
+            Console.Out.Flush();
             if (parkItem == null)
             {
                 return NotFound();
