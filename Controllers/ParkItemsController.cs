@@ -41,12 +41,13 @@ namespace leashApi.Controllers
             return parkItem;
         }
 
-                // GET: api/ParkItems/5
+        // GET: api/ParkItems/5
+        //Get list of parks by suburb
         [HttpGet("suburb/{suburb}")]
         public async Task<ActionResult<ParkItem>> GetParkItem(String suburb)
         {
             var parkItem = await _context.ParkItems.FindAsync(suburb);
-
+            Console.Write("this is the sent suburb: " + suburb);
             if (parkItem == null)
             {
                 return NotFound();
