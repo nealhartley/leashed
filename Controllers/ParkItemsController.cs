@@ -46,8 +46,16 @@ namespace leashApi.Controllers
         [HttpGet("suburb/{suburb}")]
         public async Task<ActionResult<ParkItem>> GetParkItem(String suburb)
         {
-            var parkItem = await _context.ParkItems.FindAsync(suburb);
-            Console.Write("this is the sent suburb: " + suburb);
+            // var parkItem = await _context.ParkItems.FindAsync(suburb);
+            // Console.Write("this is the sent suburb: " + suburb);
+            // if (parkItem == null)
+            // {
+            //     return NotFound();
+            // }
+
+            // return parkItem;
+            var parkItem = await _context.ParkItems.FindAsync(1);
+
             if (parkItem == null)
             {
                 return NotFound();
