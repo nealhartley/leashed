@@ -24,8 +24,8 @@ namespace leashApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ParkItem>>> GetParkItems()
         {
-            Console.Out.Write("Get works");
-            Console.Error.Write("get works");
+            Console.Out.WriteLine("Get works");
+            Console.Error.WriteLine("get works");
             Console.Out.Flush();
             return await _context.ParkItems.ToListAsync();
         }
@@ -50,7 +50,7 @@ namespace leashApi.Controllers
         public async Task<ActionResult<ParkItem>> GetParkItem(String suburb)
         {
             var parkItem = await _context.ParkItems.FindAsync(suburb);
-            Console.Out.Write("this is the sent suburb: " + suburb);
+            Console.Out.WriteLine("this is the sent suburb: " + suburb);
             Console.Out.Flush();
             if (parkItem == null)
             {
