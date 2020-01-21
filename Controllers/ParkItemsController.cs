@@ -25,6 +25,7 @@ namespace leashApi.Controllers
         public async Task<ActionResult<IEnumerable<ParkItem>>> GetParkItems()
         {
             Console.Out.Write("Get works");
+            Console.Error.Write("get works");
             return await _context.ParkItems.ToListAsync();
         }
 
