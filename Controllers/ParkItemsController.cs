@@ -41,6 +41,20 @@ namespace leashApi.Controllers
             return parkItem;
         }
 
+                // GET: api/ParkItems/5
+        [HttpGet("suburb/{suburb}")]
+        public async Task<ActionResult<ParkItem>> GetParkItem(String suburb)
+        {
+            var parkItem = await _context.ParkItems.FindAsync(suburb);
+
+            if (parkItem == null)
+            {
+                return NotFound();
+            }
+
+            return parkItem;
+        }
+
         // PUT: api/ParkItems/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
