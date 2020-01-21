@@ -26,7 +26,7 @@ using Microsoft.Extensions.Configuration;
                 string connectionString = $"host={Server};port={Port};database={Database};uid={User};pwd={Pass};sslmode=Require;Trust Server Certificate=true;Timeout=1000";
                 return connectionString;
             } else{
-                return "host=192.3.3.3;port=8888;database='yourmom';uid=2;pwd=2;sslmode=Require;Trust Server Certificate=true;Timeout=1000";
+                return "host=192.3.3.3;port=8888;database='noDBconnection';uid=2;pwd=2;sslmode=Require;Trust Server Certificate=true;Timeout=1000";
             }
         }
     }
