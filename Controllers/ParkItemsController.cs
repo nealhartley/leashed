@@ -46,11 +46,11 @@ namespace leashApi.Controllers
 
         // GET: api/ParkItems/suburb/city+name
         //Get list of parks by suburb
-        [HttpGet("/suburb/{suburb:alpha}")]
-        public async Task<ActionResult<ParkItem>> GetParkItem(String suburb)
+        [HttpGet("/suburb/{id}")]
+        public async Task<ActionResult<ParkItem>> GetParkItem(int id)
         {
-            var parkItem = await _context.ParkItems.FindAsync(suburb);
-            Console.Out.WriteLine("this is the sent suburb: " + suburb);
+            var parkItem = await _context.ParkItems.FindAsync(id);
+            Console.Out.WriteLine("this is the sent suburb: " + id);
             Console.Out.Flush();
             if (parkItem == null)
             {
