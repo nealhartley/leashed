@@ -21,7 +21,7 @@ namespace leashApi.Controllers
         }
 
         // GET: api/ParkItems
-        [HttpGet("/suburb")]
+        [HttpGet("suburb")]
         public async Task<ActionResult<IEnumerable<ParkItem>>> GetParkItems()
         {
             Console.Out.WriteLine("Get works");
@@ -46,7 +46,7 @@ namespace leashApi.Controllers
 
         // GET: api/ParkItems/suburb/city+name
         //Get list of parks by suburb
-        [HttpGet("/suburb/{id}")]
+        [HttpGet("suburb/{id}")]
         public async Task<ActionResult<ParkItem>> GetParkItem(int id)
         {
             var parkItem = await _context.ParkItems.FindAsync(id);
