@@ -52,9 +52,6 @@ namespace leashApi.Controllers
             var parkItem = await _context.ParkItems.Where( li => 
                 li.Suburb == id
             ).ToListAsync();
-            // var suburbList = parkItem.Where( li => 
-            //     li.Suburb == id
-            // ).ToList();
          
             if (parkItem.Count == 0)
             {

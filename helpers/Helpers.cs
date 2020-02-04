@@ -8,6 +8,9 @@ using Microsoft.Extensions.Configuration;
         public static string connectionStringMaker()
         {
             if(Environment.GetEnvironmentVariable("DATABASE_URL") != null){
+                 Console.WriteLine(
+                    "using generated string from env vars"
+                );
                 string connectionURL = Environment.GetEnvironmentVariable("DATABASE_URL");
 
                 connectionURL.Replace("//", "");
@@ -26,7 +29,10 @@ using Microsoft.Extensions.Configuration;
                 string connectionString = $"host={Server};port={Port};database={Database};uid={User};pwd={Pass};sslmode=Require;Trust Server Certificate=true;Timeout=1000";
                 return connectionString;
             } else{
-                return "host=192.3.3.3;port=8888;database='noDBconnection';uid=2;pwd=2;sslmode=Require;Trust Server Certificate=true;Timeout=1000";
+                Console.WriteLine(
+                    "using default string"
+                );
+                return "host=localhost;port=5432;database='postgres';uid='admin';pwd='admin';sslmode=Require;Trust Server Certificate=true;Timeout=1000";
             }
         }
     }
