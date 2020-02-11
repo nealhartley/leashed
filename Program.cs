@@ -13,6 +13,9 @@ namespace leashApi
     {
         public static void Main(string[] args)
         {
+             Console.WriteLine(
+                    "main run boy"
+                );
             CreateHostBuilder(args).Build().Run();
         }
 

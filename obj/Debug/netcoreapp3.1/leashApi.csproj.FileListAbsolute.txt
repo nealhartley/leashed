@@ -113,3 +113,14 @@ C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\obj\Debug\netcoreapp3.1\
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\obj\Debug\netcoreapp3.1\leashApi.csproj.CopyComplete
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\obj\Debug\netcoreapp3.1\leashApi.dll
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\obj\Debug\netcoreapp3.1\leashApi.pdb
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll

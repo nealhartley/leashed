@@ -7,10 +7,9 @@ using Microsoft.Extensions.Configuration;
 
         public static string connectionStringMaker()
         {
+            Console.WriteLine("in connection string helper method" );
             if(Environment.GetEnvironmentVariable("DATABASE_URL") != null){
-                 Console.WriteLine(
-                    "using generated string from env vars"
-                );
+                 Console.WriteLine("using generated string from env vars" );
                 string connectionURL = Environment.GetEnvironmentVariable("DATABASE_URL");
 
                 connectionURL.Replace("//", "");
@@ -27,12 +26,12 @@ using Microsoft.Extensions.Configuration;
                 string Port = strConn[4];
 
                 string connectionString = $"host={Server};port={Port};database={Database};uid={User};pwd={Pass};sslmode=Require;Trust Server Certificate=true;Timeout=1000";
+                Console.WriteLine(connectionString + ": heroku db connection string");
                 return connectionString;
             } else{
-                Console.WriteLine(
-                    "using default string"
-                );
-                return "host=localhost;port=5432;database='postgres';uid='admin';pwd='admin';sslmode=Require;Trust Server Certificate=true;Timeout=1000";
+               
+                throw new System.InvalidOperationException("Environment variables are not declared correctly");
+ 
             }
         }
     }

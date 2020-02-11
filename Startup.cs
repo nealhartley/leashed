@@ -34,23 +34,52 @@ namespace leashApi
             //     Password = dbPassword
             // };
 
-            
-            services.AddDbContext<ParkContext>(opt =>
-            opt.UseNpgsql(Helpers.connectionStringMaker()));
+             Console.WriteLine("About to make the string for db");
+            //  Console.WriteLine(Helpers.connectionStringMaker());
 
-            services.AddControllers();
+            try{ //trying to create and connecft with environemnt variables. This will work build only.
+                Console.WriteLine(" Attempting connection to db with environment vars ");
+
+                String connectionString = Helpers.connectionStringMaker();
+                Console.WriteLine(" we are now past thrown error ");
+                services.AddDbContext<ParkContext>(opt =>
+                opt.UseNpgsql(connectionString));
+                services.AddControllers();
+
+            } catch(InvalidOperationException e){
+
+                Console.WriteLine(" Caught exception. opening connection to local db " + e);
+                var connectionString = Configuration["PostgreSql:ConnectionString"];
+                var dbPassword = Configuration["PostgreSql:DbPassword"];
+                var builder = new NpgsqlConnectionStringBuilder(connectionString){
+                    Password = dbPassword
+                };
+                services.AddDbContext<ParkContext>(opt =>
+                opt.UseNpgsql(builder.ConnectionString));
+                services.AddControllers();
+            
+            } 
+
+            //services.AddControllers();
         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            Console.WriteLine("getting context");
             //added
-            var context = app.ApplicationServices.GetService<ParkContext>();
+            try{
+                var context = app.ApplicationServices.GetService<ParkContext>();
 
-            if(!context.Database.EnsureCreated()){
-                context.Database.Migrate();
+                if(!context.Database.EnsureCreated()){
+                    context.Database.Migrate();
+                }
+
+            } catch (InvalidOperationException e) {
+                Console.WriteLine("catched contect error: " + e);
             }
+
 
             if (env.IsDevelopment())
             {
