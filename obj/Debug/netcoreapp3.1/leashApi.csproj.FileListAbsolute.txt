@@ -124,3 +124,10 @@ C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+c:\Users\Dev\Desktop\Projects - Neven\leashAPI\leashApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
