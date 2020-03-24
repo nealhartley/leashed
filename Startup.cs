@@ -41,16 +41,20 @@ namespace leashApi
                 Console.WriteLine(" Attempting connection to db with environment vars ");
 
                 String connectionString = Helpers.connectionStringMaker();
-                Console.WriteLine(" we are now past thrown error ");
+                Console.WriteLine(" -- we are now past thrown error ");
                 services.AddDbContext<ParkContext>(opt =>
                 opt.UseNpgsql(connectionString));
                 services.AddControllers();
 
             } catch(InvalidOperationException e){
 
-                Console.WriteLine(" Caught exception. opening connection to local db " + e);
+                Console.WriteLine(" -- Caught exception. opening connection to local db " + e);
+                Console.WriteLine(" -- --");
+                Console.WriteLine(" -- now beginning to build string from config files");
                 var connectionString = Configuration["PostgreSql:ConnectionString"];
                 var dbPassword = Configuration["PostgreSql:DbPassword"];
+                Console.WriteLine("connection string: " + connectionString);
+                Console.WriteLine("db password: " + dbPassword);
                 var builder = new NpgsqlConnectionStringBuilder(connectionString){
                     Password = dbPassword
                 };

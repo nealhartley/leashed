@@ -1,0 +1,23 @@
+version: '3.7'
+
+volumes:
+    pgdata:
+
+services: 
+    postgres:
+        image:  postgres:9-alpine
+        restart: always
+        env_file: 
+            - .env
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        ports: 
+            - "8080:5432"
+
+    api:
+        build: .
+        ports:
+            - "5001:5001"
+            - "5000:5000"
+        depends_on: 
+            - postgres

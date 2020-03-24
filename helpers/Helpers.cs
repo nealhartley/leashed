@@ -1,13 +1,20 @@
 using System;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using System.Collections;
 
 
     public class Helpers{
 
         public static string connectionStringMaker()
         {
-            Console.WriteLine("in connection string helper method" );
+            Console.WriteLine("--in connection string helper method" );
+            Console.WriteLine("--Environment variables:");
+            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+                { 
+                Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+                }
+            
             if(Environment.GetEnvironmentVariable("DATABASE_URL") != null){
                  Console.WriteLine("using generated string from env vars" );
                 string connectionURL = Environment.GetEnvironmentVariable("DATABASE_URL");
@@ -30,7 +37,7 @@ using Microsoft.Extensions.Configuration;
                 return connectionString;
             } else{
                
-                throw new System.InvalidOperationException("Environment variables are not declared correctly");
+                throw new System.InvalidOperationException("--Environment variables are not declared correctly");
  
             }
         }
