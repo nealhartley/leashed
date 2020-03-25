@@ -71,17 +71,18 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            Console.WriteLine("getting context");
+            Console.WriteLine("--getting context");
             //added
             try{
                 var context = app.ApplicationServices.GetService<ParkContext>();
 
                 if(!context.Database.EnsureCreated()){
+                    Console.WriteLine("--about to run migration");
                     context.Database.Migrate();
                 }
 
             } catch (InvalidOperationException e) {
-                Console.WriteLine("catched contect error: " + e);
+                Console.WriteLine("catched context error: " + e);
             }
 
 
