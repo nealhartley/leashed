@@ -81,8 +81,10 @@ namespace leashApi
                     context.Database.Migrate();
                 }
 
-            } catch (InvalidOperationException e) {
+            } catch (InvalidOperationException e ) {
                 Console.WriteLine("catched context error: " + e);
+            } catch (Exception e) {
+                Console.WriteLine("Caught random exception: " + e);
             }
 
 
