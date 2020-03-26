@@ -6,6 +6,7 @@ volumes:
 services: 
     postgres:
         image:  postgres:12-alpine
+        command: postgres -c log_connections=on -c log_disconnections=on -c log_statement=all
         restart: always
         env_file: 
             - .env
