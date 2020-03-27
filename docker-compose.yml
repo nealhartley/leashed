@@ -22,3 +22,9 @@ services:
             - "5000:5000"
         depends_on: 
             - postgres
+
+    tcpdump:
+        build:
+            context: .
+            dockerfile: dockerfile-tcpdump
+        network_mode: "api"
