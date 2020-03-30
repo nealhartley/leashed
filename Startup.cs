@@ -75,9 +75,10 @@ namespace leashApi
             //added
             try{
                 var context = app.ApplicationServices.GetService<ParkContext>();
-
+                Console.WriteLine("Context type is: {0}",context.GetType());
+                
                 if(!context.Database.EnsureCreated()){
-                    Console.WriteLine("--about to run migration");
+                   Console.WriteLine("--about to run migration");
                     context.Database.Migrate();
                 }
 
@@ -86,7 +87,6 @@ namespace leashApi
             } catch (Exception e) {
                 Console.WriteLine("Caught random exception: " + e);
             }
-
 
             if (env.IsDevelopment())
             {

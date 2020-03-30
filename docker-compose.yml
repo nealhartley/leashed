@@ -6,7 +6,7 @@ volumes:
 services: 
     postgres:
         image:  postgres:12-alpine
-        command: postgres -c log_connections=on -c log_disconnections=on -c log_statement=all
+        command: postgres -c log_connections=on -c log_disconnections=on #-c log_statement=all
         restart: always
         env_file: 
             - .env
@@ -17,14 +17,21 @@ services:
 
     api:
         build: .
-        ports:
-            - "5001:5001"
-            - "5000:5000"
+
         depends_on: 
+            - tcpdump
             - postgres
+        network_mode: "service:tcpdump"
 
     tcpdump:
         build:
             context: .
             dockerfile: dockerfile-tcpdump
-        network_mode: "service:postgres"
+        volumes:
+            - type: bind
+              source: /home/docker/NSprojects/leashed/pcap
+              target: /pcap
+        ports:
+            - "5001:5001"
+            - "5000:5000"
+        
