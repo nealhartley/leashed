@@ -76,10 +76,13 @@ namespace leashApi
             try{
                 var context = app.ApplicationServices.GetService<ParkContext>();
 
-                if(!context.Database.EnsureCreated()){
+              /*  if(!context.Database.EnsureCreated()){
                     Console.WriteLine("--about to run migration");
                     context.Database.Migrate();
-                }
+                }*/
+
+                //EnsureCreated makes the database and returns true if it dose can not then use migrations
+                context.Database.Migrate();
 
             } catch (InvalidOperationException e ) {
                 Console.WriteLine("catched context error: " + e);
