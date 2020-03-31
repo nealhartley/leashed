@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj": {}
+    "C:\\NSprojects\\leashed\\leashApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj": {
+    "C:\\NSprojects\\leashed\\leashApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj",
+        "projectUniqueName": "C:\\NSprojects\\leashed\\leashApi.csproj",
         "projectName": "leashApi",
-        "projectPath": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj",
-        "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\obj\\",
+        "projectPath": "C:\\NSprojects\\leashed\\leashApi.csproj",
+        "packagesPath": "C:\\Users\\TCT\\.nuget\\packages\\",
+        "outputPath": "C:\\NSprojects\\leashed\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TCT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -82,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
