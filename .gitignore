@@ -1,3 +1,4 @@
 secrets/
 obj/
 .vs*/
+bin/
