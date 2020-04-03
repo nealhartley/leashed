@@ -1,0 +1,6 @@
+FROM postgres:12-alpine
+LABEL "Product"="PostgreSQL (SSL enabled)"
+COPY DevCerts/server.key /var/lib/postgresql/server.key
+COPY DevCerts/server.crt /var/lib/postgresql/server.crt
+RUN chown postgres /var/lib/postgresql/server.key && \
+    chmod 600 /var/lib/postgresql/server.key

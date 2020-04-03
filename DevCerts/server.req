@@ -1,0 +1,62 @@
+Certificate Request:
+    Data:
+        Version: 1 (0x0)
+        Subject: C = NZ, ST = None, L = city, O = NS Positronics, OU = Dev, CN = leashapi_postgres_1, emailAddress = na
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:c2:d6:59:7e:4f:fc:82:bf:22:aa:dc:af:77:5f:
+                    97:98:2c:2d:0f:cb:4c:1c:08:13:63:18:d7:de:9d:
+                    62:c0:72:9b:51:75:53:f0:12:7d:dc:c1:e5:b3:40:
+                    5b:55:f4:cb:c0:4d:33:db:40:dd:40:52:64:77:da:
+                    66:6a:7d:ba:6f:2d:db:dc:1d:f2:f8:c1:5e:23:5e:
+                    9f:45:58:53:66:34:a7:3d:9d:aa:21:1b:5d:df:f5:
+                    4d:50:18:e5:f0:a9:e6:a4:26:68:8c:38:7e:f5:03:
+                    e2:e0:af:d1:dc:5c:2d:43:48:f5:9f:09:4b:9c:b5:
+                    62:82:9a:d0:05:33:b4:ed:ba:d8:95:46:94:cb:db:
+                    fd:a3:20:e8:35:6f:a1:79:80:e5:8f:db:c3:53:a9:
+                    cf:82:ac:42:f5:84:a0:91:b4:d2:d1:3b:77:04:e1:
+                    5f:47:82:53:af:46:38:c0:88:c0:74:7e:aa:c7:8d:
+                    da:cf:93:8c:55:0e:39:5f:ee:a2:f9:1c:0f:60:a7:
+                    2b:ab:bf:27:61:c5:c3:3b:52:79:b6:48:f3:f0:57:
+                    1c:eb:6f:9f:43:14:97:53:df:e1:94:f5:d4:37:9b:
+                    93:3d:71:ed:0e:07:52:f4:46:ba:59:85:8e:7c:f4:
+                    0a:f0:03:c5:24:e3:f9:f5:cf:9d:b8:58:e1:a5:13:
+                    0d:1f
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha256WithRSAEncryption
+         01:b2:70:5f:b2:66:93:ca:ab:58:dc:e4:fd:a2:b0:5e:39:2b:
+         24:05:bd:87:a4:da:8b:69:e5:ec:7c:d1:4f:f6:eb:e3:df:50:
+         d8:78:3f:e7:51:46:db:92:92:ba:ad:a2:42:2a:25:a8:ec:bf:
+         08:18:3e:dc:b3:bd:c6:e7:3c:e8:44:2e:85:46:51:26:1b:62:
+         ef:5b:4b:a0:a6:d3:3f:80:80:0c:30:48:e8:50:3b:8f:9c:ed:
+         8f:b3:8e:98:6e:65:7d:39:84:3e:b5:57:c7:86:e5:0f:f7:70:
+         01:5e:c1:d5:45:ae:48:5f:ef:3b:9a:dd:5a:9c:a8:ee:2c:61:
+         74:7a:1c:72:e6:44:07:84:a8:ab:c0:bd:dd:d9:d7:36:01:7d:
+         f9:41:36:2f:0d:61:a2:73:c9:56:91:e3:d5:10:01:10:d1:7c:
+         a3:d3:08:b8:e8:4b:cc:c9:48:11:26:e8:f7:e7:76:a0:a5:3b:
+         47:b5:33:08:5a:50:5c:7b:f9:d3:ed:58:db:36:5e:bc:5a:d0:
+         dd:02:c8:07:dd:39:43:10:cf:45:67:b0:be:76:a4:81:04:ad:
+         66:90:e5:01:79:ff:b1:b0:ee:00:38:f9:1a:3e:04:5f:b7:8e:
+         0a:d9:44:db:b3:79:bf:66:1b:f0:17:08:97:79:0c:d7:18:5d:
+         4d:0e:26:70
+-----BEGIN CERTIFICATE REQUEST-----
+MIICyTCCAbECAQAwgYMxCzAJBgNVBAYTAk5aMQ0wCwYDVQQIDAROb25lMQ0wCwYD
+VQQHDARjaXR5MRcwFQYDVQQKDA5OUyBQb3NpdHJvbmljczEMMAoGA1UECwwDRGV2
+MRwwGgYDVQQDDBNsZWFzaGFwaV9wb3N0Z3Jlc18xMREwDwYJKoZIhvcNAQkBFgJu
+YTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMLWWX5P/IK/Iqrcr3df
+l5gsLQ/LTBwIE2MY196dYsBym1F1U/ASfdzB5bNAW1X0y8BNM9tA3UBSZHfaZmp9
+um8t29wd8vjBXiNen0VYU2Y0pz2dqiEbXd/1TVAY5fCp5qQmaIw4fvUD4uCv0dxc
+LUNI9Z8JS5y1YoKa0AUztO262JVGlMvb/aMg6DVvoXmA5Y/bw1Opz4KsQvWEoJG0
+0tE7dwThX0eCU69GOMCIwHR+qseN2s+TjFUOOV/uovkcD2CnK6u/J2HFwztSebZI
+8/BXHOtvn0MUl1Pf4ZT11Debkz1x7Q4HUvRGulmFjnz0CvADxSTj+fXPnbhY4aUT
+DR8CAwEAAaAAMA0GCSqGSIb3DQEBCwUAA4IBAQABsnBfsmaTyqtY3OT9orBeOSsk
+Bb2HpNqLaeXsfNFP9uvj31DYeD/nUUbbkpK6raJCKiWo7L8IGD7cs73G5zzoRC6F
+RlEmG2LvW0ugptM/gIAMMEjoUDuPnO2Ps46YbmV9OYQ+tVfHhuUP93ABXsHVRa5I
+X+87mt1anKjuLGF0ehxy5kQHhKirwL3d2dc2AX35QTYvDWGic8lWkePVEAEQ0Xyj
+0wi46EvMyUgRJuj353agpTtHtTMIWlBce/nT7VjbNl68WtDdAsgH3TlDEM9FZ7C+
+dqSBBK1mkOUBef+xsO4AOPkaPgRft44K2UTbs3m/ZhvwFwiXeQzXGF1NDiZw
+-----END CERTIFICATE REQUEST-----
