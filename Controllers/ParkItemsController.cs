@@ -36,12 +36,26 @@ namespace leashApi.Controllers
         {
             var parkItem = await _context.ParkItems.FindAsync(id);
 
-            if (parkItem == null)
+            if (parkItem== null)
             {
                 return NotFound();
             }
 
             return parkItem;
+        }
+
+        // GET: api/ParkItems/ gets all
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ParkItem>>> GetParkItem()
+        {
+            var parkItems = await _context.ParkItems.ToListAsync();
+
+            if (parkItems == null)
+            {
+                return NotFound();
+            }
+
+            return parkItems;
         }
 
         // GET: api/ParkItems/suburb/city+name
