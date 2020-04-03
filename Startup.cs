@@ -74,7 +74,9 @@ namespace leashApi
             Console.WriteLine("--getting context");
             //added
             try{
-                var context = app.ApplicationServices.GetService<ParkContext>();
+                //Making a scope so the databse context is freed after configure. 
+                var serviceScope = app.ApplicationServices.CreateScope();
+                var context = serviceScope.ServiceProvider.GetService<ParkContext>();
 
               /*  if(!context.Database.EnsureCreated()){
                     Console.WriteLine("--about to run migration");
