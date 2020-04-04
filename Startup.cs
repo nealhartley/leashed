@@ -34,9 +34,11 @@ namespace leashApi
             //     Password = dbPassword
             // };
 
+            
+
              Console.WriteLine("About to make the string for db");
             //  Console.WriteLine(Helpers.connectionStringMaker());
-
+            
             try{ //trying to create and connecft with environemnt variables. This will work build only.
                 Console.WriteLine(" Attempting connection to db with environment vars ");
 
