@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using TodoApi.Models;
 using Npgsql;
 
@@ -34,7 +36,6 @@ namespace leashApi
             //     Password = dbPassword
             // };
 
-            
 
              Console.WriteLine("About to make the string for db");
             //  Console.WriteLine(Helpers.connectionStringMaker());
@@ -66,6 +67,14 @@ namespace leashApi
             
             } 
 
+             services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "http://192.168.99.100:8986";
+                    options.RequireHttpsMetadata = false;
+
+                    options.Audience = "api1";
+                });
             //services.AddControllers();
         
         }
@@ -84,7 +93,7 @@ namespace leashApi
                     Console.WriteLine("--about to run migration");
                     context.Database.Migrate();
                 }*/
-
+            
                 //EnsureCreated makes the database and returns true if it dose can not then use migrations
                 context.Database.Migrate();
 
@@ -104,11 +113,13 @@ namespace leashApi
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                .RequireAuthorization();
             });
 
         }
