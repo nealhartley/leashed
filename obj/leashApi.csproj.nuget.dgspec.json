@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj": {}
+    "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj": {
+    "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj",
+        "projectUniqueName": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj",
         "projectName": "leashApi",
-        "projectPath": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\leashApi.csproj",
-        "packagesPath": "C:\\Users\\Dev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dev\\Desktop\\Projects - Neven\\leashAPI\\leashApi\\obj\\",
+        "projectPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj",
+        "packagesPath": "C:\\Users\\TCT\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TCT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -29,7 +29,7 @@ services:
             dockerfile: dockerfile-tcpdump
         volumes:
             - type: bind
-              source: /home/docker/NSprojects/leashed/pcap
+              source: /leashed/pcap
               target: /pcap
         ports:
             - "5001:5001"
