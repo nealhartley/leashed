@@ -22,6 +22,18 @@ services:
             - tcpdump
             - postgres
         network_mode: "service:tcpdump"
+        volumes:
+            - type: bind
+              source: /leashed/Assets
+              target: /Assets
+
+            - type: bind
+              source: /leashed/Certificate
+              target: /Certificate
+        environment: 
+            - Kestrel__Certificates__Default__Path=/Certificate/leashed.pfx
+            - Kestrel__Certificates__Default__Password=password
+
 
     tcpdump:
         build:
@@ -31,6 +43,9 @@ services:
             - type: bind
               source: /leashed/pcap
               target: /pcap
+
+
+            
         ports:
             - "5001:5001"
             - "5000:5000"

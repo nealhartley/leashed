@@ -10,9 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+using leashApi.Models;
 using Npgsql;
+using leashed.helpers;
 
 namespace leashApi
 {
@@ -28,14 +30,25 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             // var connectionString = Configuration["PostgreSql:ConnectionString"];
             // var dbPassword = Configuration["PostgreSql:DbPassword"];
             // var builder = new NpgsqlConnectionStringBuilder(connectionString){
             //     Password = dbPassword
             // };
+                services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }).AddJwtBearer(options =>
+                {
+                    options.Authority = $"https://{Configuration["Auth0:Domain"]}/";
+                    options.Audience = Configuration["Auth0:Audience"];
+                });
 
-             Console.WriteLine("About to make the string for db");
-            //  Console.WriteLine(Helpers.connectionStringMaker());
+            Console.WriteLine("About to make the string for db");
+            //Console.WriteLine(Helpers.connectionStringMaker());
 
             try{ //trying to create and connecft with environemnt variables. This will work build only.
                 Console.WriteLine(" Attempting connection to db with environment vars ");
@@ -45,6 +58,7 @@ namespace leashApi
                 services.AddDbContext<ParkContext>(opt =>
                 opt.UseNpgsql(connectionString));
                 services.AddControllers();
+                services.AddScoped<IDbInitializer, DbInitializer> ();
 
             } catch(InvalidOperationException e){
 
@@ -61,6 +75,7 @@ namespace leashApi
                 services.AddDbContext<ParkContext>(opt =>
                 opt.UseNpgsql(builder.ConnectionString));
                 services.AddControllers();
+                services.AddScoped<IDbInitializer, DbInitializer> ();
             
             } 
 
@@ -71,6 +86,7 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             Console.WriteLine("--getting context");
             //added
             try{
@@ -88,17 +104,22 @@ namespace leashApi
                 Console.WriteLine("Caught random exception: " + e);
             }
 
+            var scopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory> ();
+            using (var scope = scopeFactory.CreateScope ()) {
+                    var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer> ();
+                //dbInitializer.Initialize ();
+                    dbInitializer.SeedData ();
+                }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

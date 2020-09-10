@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace TodoApi.Models
+namespace leashApi.Models
 {
     public class ParkContext : DbContext
     {
