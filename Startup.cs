@@ -11,10 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using leashApi.Models;
 using Npgsql;
 using leashed.helpers;
+using Microsoft.IdentityModel.Logging;
+using leashed.Authorization;
 
 namespace leashApi
 {
@@ -31,7 +34,7 @@ namespace leashApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-
+            IdentityModelEventSource.ShowPII = true;
             // var connectionString = Configuration["PostgreSql:ConnectionString"];
             // var dbPassword = Configuration["PostgreSql:DbPassword"];
             // var builder = new NpgsqlConnectionStringBuilder(connectionString){
@@ -43,9 +46,15 @@ namespace leashApi
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 }).AddJwtBearer(options =>
                 {
-                    options.Authority = $"https://{Configuration["Auth0:Domain"]}/";
+                    options.Authority = $"{Configuration["Auth0:Domain"]}";
                     options.Audience = Configuration["Auth0:Audience"];
                 });
+
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("IsAdmin", policy => policy.Requirements.Add(new ILeashedAuthorizationHandlerRequirement()));
+                });
+                services.AddSingleton<IAuthorizationHandler, ILeashedAuthorizationHandler>();
 
             Console.WriteLine("About to make the string for db");
             //Console.WriteLine(Helpers.connectionStringMaker());

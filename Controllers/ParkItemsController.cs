@@ -111,7 +111,7 @@ namespace leashApi.Controllers
 
         // DELETE: api/ParkItems/5
         [HttpDelete("{id}")]
-        [Authorize]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<ParkItem>> DeleteParkItem(long id)
         {
             var parkItem = await _context.ParkItems.FindAsync(id);
