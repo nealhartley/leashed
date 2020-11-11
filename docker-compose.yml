@@ -2,6 +2,7 @@ version: '3.7'
 
 volumes:
     pgdata:
+    s3ninja:
 
 services: 
     postgres:
@@ -49,4 +50,14 @@ services:
         ports:
             - "5001:5001"
             - "5000:5000"
+
+    s3:
+        build: scireum/s3-ninja
+        volumes:
+            - s3ninja:/home/sirius/data
+
+        ports:
+            -9444:9000
+
+        
         
