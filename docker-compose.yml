@@ -52,7 +52,7 @@ services:
             - "5000:5000"
 
     s3:
-        image: scireum/s3-ninja
+        image: scireum/s3-ninja:6.5.2
         volumes:
             - s3ninja:/home/sirius/data
 
