@@ -31,8 +31,8 @@ services:
               source: /leashed/Certificate
               target: /Certificate
         environment: 
-            - Kestrel__Certificates__Default__Path=/Certificate/leashed.pfx
-            - Kestrel__Certificates__Default__Password=password
+            - Kestrel__Certificates__Default__Path=/Certificate/ServerSSL.pfx
+            - Kestrel__Certificates__Default__Password=Test123
 
 
     tcpdump:

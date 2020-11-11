@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -40,6 +41,13 @@ namespace leashApi
             // var builder = new NpgsqlConnectionStringBuilder(connectionString){
             //     Password = dbPassword
             // };
+
+                services.AddCors(options =>  
+                {  
+                    options.AddPolicy("TestApp",  
+                    builder => builder.WithOrigins("https://localhost:7001").AllowAnyHeader());  
+                });
+
                 services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -96,6 +104,7 @@ namespace leashApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
+            
             Console.WriteLine("--getting context");
             //added
             try{
@@ -127,6 +136,7 @@ namespace leashApi
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors("TestApp");
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

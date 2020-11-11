@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using leashApi.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace leashApi.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("TestApp")] 
     public class ParkItemsController : ControllerBase
     {
         private readonly ParkContext _context;
