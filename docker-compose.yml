@@ -57,7 +57,7 @@ services:
             - s3ninja:/home/sirius/data
 
         ports:
-            -9444:9000
+            - 9444:9000
 
         
         
