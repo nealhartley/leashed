@@ -8,7 +8,11 @@ volumes:
 services: 
     postgres:
         image:  postgres:12-alpine
+
         command: postgres -c log_connections=on -c log_disconnections=on #-c log_statement=all
+
+        container_name: leashapi_postgres_1
+
         restart: always
         env_file: 
             - .env
