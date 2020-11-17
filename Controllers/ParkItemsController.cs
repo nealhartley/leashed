@@ -5,12 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+using leashApi.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace leashApi.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("TestApp")] 
     public class ParkItemsController : ControllerBase
     {
         private readonly ParkContext _context;
@@ -66,6 +70,7 @@ namespace leashApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutParkItem(long id, ParkItem parkItem)
         {
             if (id != parkItem.Id)
@@ -98,6 +103,7 @@ namespace leashApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ParkItem>> PostParkItem(ParkItem parkItem)
         {
             _context.ParkItems.Add(parkItem);
@@ -108,6 +114,7 @@ namespace leashApi.Controllers
 
         // DELETE: api/ParkItems/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = "IsAdmin")]
         public async Task<ActionResult<ParkItem>> DeleteParkItem(long id)
         {
             var parkItem = await _context.ParkItems.FindAsync(id);

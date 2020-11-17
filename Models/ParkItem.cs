@@ -1,13 +1,23 @@
-namespace TodoApi.Models
+using System.ComponentModel.DataAnnotations;
+
+namespace leashApi.Models
 {
     public class ParkItem
     {
         public long Id { get; set; }
+        [Required]
+        [StringLength(255)]
         public string Name { get; set; }
-        public bool IsLeashed { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string IsLeashed { get; set; }
         public bool RoadFront { get; set; }
         public string Suburb { get; set; }
+        [Required]
+        [StringLength(255)]
         public string City { get; set; }
+        [Required]
+        [StringLength(255)]
         public string Country { get; set; }
     }
 }

@@ -16,7 +16,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS runtime
 WORKDIR /app
 COPY --from=publish /src/publish .
 #look into defining https and http also look into ipv4 and ipv6 bindings
-ENV ASPNETCORE_URLS http://*:5000 
+ENV ASPNETCORE_URLS http://*:5000;https://*:5001 
 ENTRYPOINT ["dotnet", "leashApi.dll"]
 #COPY --from=build /src/leashApi/entrypoint.sh .
 #RUN chmod +x ./entrypoint.sh

@@ -2,11 +2,17 @@ version: '3.7'
 
 volumes:
     pgdata:
+    s3ninja:
+
 
 services: 
     postgres:
         image:  postgres:12-alpine
+
+        command: postgres -c log_connections=on -c log_disconnections=on #-c log_statement=all
+
         container_name: leashapi_postgres_1
+
         restart: always
         env_file: 
             - .env
@@ -14,11 +20,58 @@ services:
             - pgdata:/var/lib/postgresql/data
         ports: 
             - "8080:5432"
+        
+       
 
     api:
         build: .
+
+        depends_on: 
+            - tcpdump
+            - postgres
+        network_mode: "service:tcpdump"
+
+        #links: 
+            #- "s3:s3Ninja"
+
+        volumes:
+            - type: bind
+              source: /leashed/Assets
+              target: /Assets
+
+            - type: bind
+              source: /leashed/Certificate
+              target: /Certificate
+        environment: 
+            - Kestrel__Certificates__Default__Path=/Certificate/ServerSSL.pfx
+            - Kestrel__Certificates__Default__Password=Test123
+
+
+
+    tcpdump:
+        build:
+            context: .
+            dockerfile: dockerfile-tcpdump
+        volumes:
+            - type: bind
+              source: /leashed/pcap
+              target: /pcap
+   
         ports:
             - "5001:5001"
             - "5000:5000"
-        depends_on: 
-            - postgres
+
+    s3:
+        image: scireum/s3-ninja:6.5.2
+        container_name: s3Ninja
+
+        volumes:
+            - s3ninja:/home/sirius/data
+
+        ports:
+            - 9444:9000
+
+       
+
+        
+        

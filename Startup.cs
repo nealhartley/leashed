@@ -4,15 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Models;
+using leashApi.Models;
 using Npgsql;
+using leashed.helpers;
+using Microsoft.IdentityModel.Logging;
+using leashed.Authorization;
 
 namespace leashApi
 {
@@ -28,14 +34,38 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            IdentityModelEventSource.ShowPII = true;
             // var connectionString = Configuration["PostgreSql:ConnectionString"];
             // var dbPassword = Configuration["PostgreSql:DbPassword"];
             // var builder = new NpgsqlConnectionStringBuilder(connectionString){
             //     Password = dbPassword
             // };
 
-             Console.WriteLine("About to make the string for db");
-            //  Console.WriteLine(Helpers.connectionStringMaker());
+                services.AddCors(options =>  
+                {  
+                    options.AddPolicy("TestApp",  
+                    builder => builder.WithOrigins("https://localhost:7001").AllowAnyHeader());  
+                });
+
+                services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }).AddJwtBearer(options =>
+                {
+                    options.Authority = $"{Configuration["Auth0:Domain"]}";
+                    options.Audience = Configuration["Auth0:Audience"];
+                });
+
+                services.AddAuthorization(options =>
+                {
+                    options.AddPolicy("IsAdmin", policy => policy.Requirements.Add(new ILeashedAuthorizationHandlerRequirement()));
+                });
+                services.AddSingleton<IAuthorizationHandler, ILeashedAuthorizationHandler>();
+
+            Console.WriteLine("About to make the string for db");
+            //Console.WriteLine(Helpers.connectionStringMaker());
 
             try{ //trying to create and connecft with environemnt variables. This will work build only.
                 Console.WriteLine(" Attempting connection to db with environment vars ");
@@ -45,6 +75,7 @@ namespace leashApi
                 services.AddDbContext<ParkContext>(opt =>
                 opt.UseNpgsql(connectionString));
                 services.AddControllers();
+                services.AddScoped<IDbInitializer, DbInitializer> ();
 
             } catch(InvalidOperationException e){
 
@@ -61,6 +92,8 @@ namespace leashApi
                 services.AddDbContext<ParkContext>(opt =>
                 opt.UseNpgsql(builder.ConnectionString));
                 services.AddControllers();
+                services.AddScoped<IDbInitializer, DbInitializer> ();
+                services.AddScoped<IPictureRepository, PictureRepository> ();
             
             } 
 
@@ -71,16 +104,17 @@ namespace leashApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            
             Console.WriteLine("--getting context");
             //added
             try{
                 var context = app.ApplicationServices.GetService<ParkContext>();
 
-              /*  if(!context.Database.EnsureCreated()){
-                    Console.WriteLine("--about to run migration");
-                    context.Database.Migrate();
-                }*/
-
+                Console.WriteLine("Context type is: {0}",context.GetType());
+                
+                if(!context.Database.EnsureCreated()){
+                   Console.WriteLine("--about to run migration");
                 //EnsureCreated makes the database and returns true if it dose can not then use migrations
                 context.Database.Migrate();
 
@@ -90,6 +124,12 @@ namespace leashApi
                 Console.WriteLine("Caught random exception: " + e);
             }
 
+            var scopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory> ();
+            using (var scope = scopeFactory.CreateScope ()) {
+                    var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer> ();
+                //dbInitializer.Initialize ();
+                    dbInitializer.SeedData ();
+                }
 
             if (env.IsDevelopment())
             {
@@ -97,11 +137,10 @@ namespace leashApi
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
+            app.UseCors("TestApp");
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
