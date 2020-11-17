@@ -38,6 +38,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AWSSDK.Core": {
+              "target": "Package",
+              "version": "[3.5.1.35, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.5.4, )"
+            },
             "CsvHelper": {
               "target": "Package",
               "version": "[15.0.5, )"

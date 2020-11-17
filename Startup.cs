@@ -93,6 +93,7 @@ namespace leashApi
                 opt.UseNpgsql(builder.ConnectionString));
                 services.AddControllers();
                 services.AddScoped<IDbInitializer, DbInitializer> ();
+                services.AddScoped<IPictureRepository, PictureRepository> ();
             
             } 
 

@@ -260,3 +260,5 @@ C:\Users\TCT\Desktop\NSProjects\leashed\obj\Debug\netcoreapp3.1\staticwebassets\
 C:\Users\TCT\Desktop\NSProjects\leashed\obj\Debug\netcoreapp3.1\leashApi.dll
 C:\Users\TCT\Desktop\NSProjects\leashed\obj\Debug\netcoreapp3.1\leashApi.pdb
 C:\Users\TCT\Desktop\NSProjects\leashed\obj\Debug\netcoreapp3.1\leashApi.genruntimeconfig.cache
+C:\Users\TCT\Desktop\NSProjects\leashed\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+C:\Users\TCT\Desktop\NSProjects\leashed\bin\Debug\netcoreapp3.1\AWSSDK.S3.dll

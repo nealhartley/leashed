@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v3.1": {
       "leashApi/1.0.0": {
         "dependencies": {
+          "AWSSDK.Core": "3.5.1.35",
+          "AWSSDK.S3": "3.5.4",
           "CsvHelper": "15.0.5",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.8",
           "Microsoft.AspNetCore.Cors": "2.2.0",
@@ -310,6 +312,31 @@
         },
         "compile": {
           "leashApi.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.5.1.35": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.5.1.35"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.5.4": {
+        "dependencies": {
+          "AWSSDK.Core": "3.5.1.35"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.5.4.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
         }
       },
       "CsvHelper/15.0.5": {
@@ -3922,6 +3949,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.5.1.35": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WDde8yIF2i0RjIAY21snc6VrPSr1MlUDepLC1dECXag9OcCgNqtsudllUu9Efv7+8Q+DdvL5MW0dSb2SYSPO2w==",
+      "path": "awssdk.core/3.5.1.35",
+      "hashPath": "awssdk.core.3.5.1.35.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IHaHZE5T/JQsM4+l+eHBdqPRuCfq36QpkqFn+ftLAmt1oKmdKQVOcEiE3rkMhVJiB3poqLCVncaul+YtfO94Kw==",
+      "path": "awssdk.s3/3.5.4",
+      "hashPath": "awssdk.s3.3.5.4.nupkg.sha512"
     },
     "CsvHelper/15.0.5": {
       "type": "package",
