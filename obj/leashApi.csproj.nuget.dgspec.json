@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj": {}
+    "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\leashApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj": {
+    "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\leashApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj",
+        "projectUniqueName": "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\leashApi.csproj",
         "projectName": "leashApi",
-        "projectPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj",
+        "projectPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\leashApi.csproj",
         "packagesPath": "C:\\Users\\TCT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\obj\\",
+        "outputPath": "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TCT\\AppData\\Roaming\\NuGet\\NuGet.Config",

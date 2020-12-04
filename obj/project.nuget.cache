@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FuIW2h2KfNNeBkvThCxn6XG5oQgz1Qq+VtrtNJyyZVmm58rWlC3rmwNVdOB0BEWGw5AYMOPVHox+tRlHpgwY6Q==",
+  "dgSpecHash": "BGjnK0Yw0cNYtXFqPzfn+sKUN9XSyZpeeTGWjWflEpkEPCcxRYdmiq4fx1a98xpW/bXM4oOvmknrVsitGXBw2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\TCT\\Desktop\\NSProjects\\leashed\\leashApi.csproj",
+  "projectFilePath": "C:\\Users\\TCT\\Desktop\\NSProjects\\oldLeashed\\leashed\\leashApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TCT\\.nuget\\packages\\awssdk.core\\3.5.1.35\\awssdk.core.3.5.1.35.nupkg.sha512",
     "C:\\Users\\TCT\\.nuget\\packages\\awssdk.s3\\3.5.4\\awssdk.s3.3.5.4.nupkg.sha512",
